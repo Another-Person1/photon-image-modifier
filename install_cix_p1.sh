@@ -17,7 +17,12 @@ EOF
 
 # Create user photon:vision login
 echo "creating photon user"
-useradd photon -m -b /home -s /bin/bash
+if ! id "photon" &>/dev/null; then
+    useradd photon -m -b /home -s /bin/bash
+    echo "creating photon user"
+else
+    echo "photon user already exists, skipping creation"
+fi
 usermod -a -G sudo photon
 echo 'photon ALL=(ALL) NOPASSWD: ALL' | tee -a /etc/sudoers.d/010_photon-nopasswd >/dev/null
 chmod 0440 /etc/sudoers.d/010_photon-nopasswd
