@@ -96,6 +96,10 @@ jobs:
           - name: orion_o6
             script: ./install_cix_p1.sh
             base_image: https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b6.img.gz
+          - name: orion_o6n
+            script: ./install_cix_p1.sh
+            base_image: https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-preinstalled-desktop-b6.img.gz
+          
 
     name: "Build for ${{ matrix.name }}"
 
