@@ -79,6 +79,12 @@ jobs:
             root_location: "partition=1"
             shrink_image: "no"
             use_cache: "no"
+          # Radxa Dragon Q6A (UEFI/GPT: EFI partition 1, rootfs partition 2)
+          - name: radxa-dragon-q6a
+            script: ./install_radxa_dragon_q6a.sh
+            base_image: https://dl.armbian.com/radxa-dragon-q6a/archive/Armbian_26.8.1_Radxa-dragon-q6a_trixie_current_6.18.2_minimal.img.xz
+            root_location: "partition=2"
+            shrink_image: "no"
           # RubikPi3
           - name: rubikpi3
             script: ./install_rubikpi3.sh
