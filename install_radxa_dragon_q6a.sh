@@ -6,6 +6,8 @@ set -o pipefail
 
 # Keep Armbian's Q6A kernel, DTB, firmware, EFI partition and UUID-based boot
 # configuration. The image runner mounts rootfs only; do not reinstall GRUB.
+# Let the stock SPI BIOS select microSD, eMMC, NVMe or USB. This 512-byte-sector
+# image is not the separate 4096-byte-sector layout required for native UFS.
 grep -Eq '^BOARD="?radxa-dragon-q6a"?$' /etc/armbian-release
 grep -Eq '^VERSION_CODENAME="?trixie"?$' /etc/os-release
 test "$(dpkg --print-architecture)" = arm64
